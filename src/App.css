@@ -1,38 +1,283 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;900&family=Montserrat:wght@300;500&family=Outfit:wght@300;400;600&family=Roboto:ital,wght@0,300;0,700;1,900&display=swap');
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
 }
 
-.App-header {
-  background-color: #282c34;
+li, h1{
+  list-style: none;
+  padding: 10px;
+  border-radius: 8px ;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
   min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+a{
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+a:hover{
+  color: #86EFAC
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background-color: #FAFAF9;
+}
+
+.info-navigation,
+.main-navigation{
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  font-size: 1.5rem;
+  font-weight: 900;
+  cursor: pointer;
+
+}
+.main-navigation>div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  
+}
+
+li:hover{
+  background-color: #D1D5DB;
+}
+.menu{
+  display: none;
+}
+
+
+main{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #1E293B;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+main>div{
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: center;
+  width: 80%;
+  min-height: 100vh;
+  padding: 10px 10px;
+  gap: 60px;
+}
+main>div>:nth-child(1){
+  grid-row-start: 1;
+  grid-row-end: 3;
+  align-self: center;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.blog-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+
+}
+
+.post-details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px;
+  background-color: #3f3f46;
+  color: white;
+  min-height: 70vh;
+  border-bottom: 1px solid whitesmoke;
+}
+
+p{
+    font-size: 1.3rem;
+}
+
+.form-comment{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: whitesmoke;
+  text-align: center;
+  padding: 10px;
+}
+.form-comment>*{
+  width: 35%;
+  padding: 5px;
+}
+.form-comment>input{
+  border: 0;
+}
+.form-comment>button{
+  cursor: pointer;
+  width: 20%;
+}
+
+.comments-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #3f3f46;
+  padding: 10px;
+  gap: 15px;
+}
+.comment-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 65%;
+  border-radius: 18px;
+  padding: 15px;
+  color: #9ca3af
+}
+.comment-card>h1{
+  align-self: flex-start;
+  color: black;
+}
+
+@media screen and (max-width: 700px){
+  
+  .info-navigation{
+    font-size: 1rem;
+    flex-direction: column;
+    padding-bottom: 0;
+    position: relative;
+    padding: 0;
+
   }
-  to {
-    transform: rotate(360deg);
+  .menu{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    top: 0;
+    left: 0;
   }
+ 
+  .info-navigation>li{
+    display: grid;
+    align-self: flex-end;
+  }
+  .info-navigation>h1{
+    order: 2;
+    display: grid;
+    padding-bottom: 0;
+    font-size: 1.8rem;
+   
+  }
+  .main-navigation>:nth-child(2){
+    margin: 0 auto;
+    
+  }
+  .main-navigation>:nth-child(1){
+    display: none;
+  }
+
+  main>div{
+    
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    justify-items: center;
+  }
+ 
+  .form-comment>*{
+    width: 75%;
+    padding: 5px;
+  }
+  .form-comment>button{
+    width: 50%;
+  }
+
+  .comment-card{
+    width: 100%;
+  }
+  
+  .side-menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 80vw;
+    height: 100%;
+    background-color: #F3F4F6;
+    padding: 15px;
+
+  }
+  .side-menu>div{
+    color: black;
+    backdrop-filter: opacity(20%);
+
+  }
+
 }
