@@ -4,10 +4,23 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { BlogContainer } from './components/BlogContainer';
 import { Footer } from './components/Footer';
 import { PostDetails } from './components/PostDetails';
+import { createContext, useState } from 'react';
+
+export const ThemeContext = createContext(null)
 
 function App() {
+  const [theme, setTheme] = useState('dark')
+
+  const toggleTheme = () =>{
+
+    setTheme(current=>current === 'dark' ? 'light' : 'dark')
+
+  }
+
+
   return (
-    <div>
+    <ThemeContext.Provider value={{theme, toggleTheme}}>
+    <div className='app' id={theme}>
       <BrowserRouter>
         <Nav />
         <Routes>
@@ -17,6 +30,8 @@ function App() {
         <Footer />
       </BrowserRouter>
     </div>
+    </ThemeContext.Provider>
+
   );
 }
 
