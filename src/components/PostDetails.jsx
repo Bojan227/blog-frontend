@@ -10,6 +10,7 @@ export const PostDetails = () => {
   const [title, setTitle] = useState('');
   const [user, setUser] = useState('');
   const [description, setDescription] = useState('');
+  const [url, setUrl] = useState('');
   const [createdAt, setCreatedAt] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -33,6 +34,7 @@ export const PostDetails = () => {
         setDescription(json[0].desc);
         setCreatedAt(json[0].createdAt);
         setUser(json[0].author.username);
+        setUrl(json[0].img);
         setIsLoading(false);
       } else {
         setError(json.msg);
@@ -50,6 +52,7 @@ export const PostDetails = () => {
   return (
     <div>
       <div className="post-details">
+        <img src={url} alt="img" style={{ height: '450px', width: '85%' }} />
         <h1>{title}</h1>
         <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
           <h2>{user.charAt(0).toUpperCase() + user.slice(1).toLowerCase()}</h2>
