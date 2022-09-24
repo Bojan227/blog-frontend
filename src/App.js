@@ -6,32 +6,28 @@ import { Footer } from './components/Footer';
 import { PostDetails } from './components/PostDetails';
 import { createContext, useState } from 'react';
 
-export const ThemeContext = createContext(null)
+export const ThemeContext = createContext(null);
 
 function App() {
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState('dark');
 
-  const toggleTheme = () =>{
-
-    setTheme(current=>current === 'dark' ? 'light' : 'dark')
-
-  }
-
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
+  };
 
   return (
-    <ThemeContext.Provider value={{theme, toggleTheme}}>
-    <div className='app' id={theme}>
-      <BrowserRouter>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<BlogContainer />} />
-          <Route path="post-details/:postId" element={<PostDetails />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </div>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div className="main-container" id={theme}>
+        <BrowserRouter>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<BlogContainer />} />
+            <Route path="post-details/:postId" element={<PostDetails />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </div>
     </ThemeContext.Provider>
-
   );
 }
 

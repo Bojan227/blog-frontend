@@ -1,18 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import theme from '../images/theme-light-dark.png';
 import github from '../images/github.png';
 import linkedin from '../images/linkedin.png';
 import twitter from '../images/twitter.png';
 import menu from '../images/menu.png';
-import { useState } from 'react';
-import { useContext } from 'react';
 import { ThemeContext } from '../App';
 
 const Nav = () => {
-  const { toggleTheme } = useContext(ThemeContext);
   const [toggleMenu, setToggleMenu] = useState(false);
+  const { toggleTheme } = useContext(ThemeContext);
 
   const variants = {
     open: { opacity: 1, x: 0 },
@@ -20,12 +18,15 @@ const Nav = () => {
   };
 
   return (
-    <nav>
+    <nav className="navigation-menu">
       <ul className="info-navigation">
         <li onClick={() => setToggleMenu(!toggleMenu)} className="menu">
           <img src={menu} alt="menu" />
         </li>
-        <h1>Boki's Blog</h1>
+        <Link to="/" style={{ color: 'black' }}>
+          <h1>Boki's Blog</h1>
+        </Link>
+
         <li onClick={toggleTheme}>
           <img src={theme} alt="theme" />
         </li>
@@ -36,37 +37,76 @@ const Nav = () => {
           <Link to="/">
             <li style={{ color: 'black' }}>Home</li>
           </Link>
-          <li>Blogs</li>
+
           <li>Portfolio</li>
         </div>
         <div className="icons-container">
-          <li>
-            <img src={github} alt="github" />
-          </li>
-          <li>
-            <img src={linkedin} alt="linkedin" />
-          </li>
-          <li>
-            <img src={twitter} alt="twitter" />
-          </li>
+          <a
+            href="https://github.com/Bojan227"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <li>
+              <img src={github} alt="github" />
+            </li>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/bojanblazevski/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <li>
+              <img src={linkedin} alt="linkedin" />
+            </li>
+          </a>
+          <a
+            href="https://twitter.com/b_blazevski"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <li>
+              <img src={twitter} alt="twitter" />
+            </li>
+          </a>
         </div>
       </ul>
-      {/* <motion.div 
-                animate={toggleMenu ? "open" : "closed"}
-                variants={variants}
-                className='side-menu'
-            // className='side-menu' style={{display: toggleMenu ? 'flex' : 'none'}}
+      <motion.div
+        animate={toggleMenu ? 'open' : 'closed'}
+        variants={variants}
+        className="side-menu"
+      >
+        <div>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+            <Link to="/">
+              <li
+                style={{ color: 'black' }}
+                onClick={() => setToggleMenu(!toggleMenu)}
+              >
+                Home
+              </li>
+            </Link>
+            <button
+              style={{
+                marginRight: '55px',
+                backgroundColor: 'inherit',
+                border: '0',
+                fontSize: '1.5rem',
+                cursor: 'pointer',
+              }}
+              onClick={() => setToggleMenu(!toggleMenu)}
             >
-            <div>
-                <Link to='/'>
-                    <li style={{color: 'black'}} onClick={()=>setToggleMenu(!toggleMenu)}>Home</li>
-                </Link>
-                <li>Blogs</li>
-                <li>Portfolio</li>
-                <button onClick={()=>setToggleMenu(!toggleMenu)}>X</button>
-            </div>
-
-        </motion.div> */}
+              X
+            </button>
+          </div>
+          <li>Portfolio</li>
+        </div>
+      </motion.div>
     </nav>
   );
 };
