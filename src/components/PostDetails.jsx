@@ -52,7 +52,7 @@ export const PostDetails = () => {
   return (
     <div>
       <div className="post-details">
-        <img src={url} alt="img" style={{ height: '450px', width: '85%' }} />
+        <img src={url} alt="img" style={{ height: '400px' }} />
         <h1>{title}</h1>
         <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
           <h2>{user.charAt(0).toUpperCase() + user.slice(1).toLowerCase()}</h2>

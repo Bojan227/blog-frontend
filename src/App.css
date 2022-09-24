@@ -169,6 +169,9 @@ main > div > :nth-child(1) {
   min-height: 70vh;
   border-bottom: 1px solid whitesmoke;
 }
+.post-details > img {
+  width: 50%;
+}
 
 #light .post-details {
   background-color: #f4f4f5;
@@ -317,5 +320,8 @@ p {
     margin-top: 25px;
     gap: 10px;
     font-size: 1.7rem;
+  }
+  .post-details > img {
+    width: 90%;
   }
 }
