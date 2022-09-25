@@ -17,7 +17,6 @@ export const PostDetails = () => {
   const {
     getComments,
     comments,
-    errorComments,
     setComments,
     isLoadingComments,
   } = useComments();
