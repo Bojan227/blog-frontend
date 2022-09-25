@@ -14,18 +14,16 @@ export const PostDetails = () => {
   const [createdAt, setCreatedAt] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const {
-    getComments,
-    comments,
-    setComments,
-    isLoadingComments,
-  } = useComments();
+  const { getComments, comments, setComments, isLoadingComments } =
+    useComments();
   const { postId } = useParams();
 
   useEffect(() => {
     const getPostDetails = async () => {
       setIsLoading(true);
-      const res = await fetch(`/posts/${postId}`);
+      const res = await fetch(
+        `https://blog-api-lys3.onrender.com/posts/${postId}`
+      );
       const json = await res.json();
 
       if (res.ok) {
