@@ -7,7 +7,7 @@ const useFetch = () => {
 
   const fetchPosts = async () => {
     setIsLoading(true);
-    const res = await fetch('/posts/');
+    const res = await fetch('https://blog-api-lys3.onrender.com/posts/');
     const json = await res.json();
 
     if (res.ok) {

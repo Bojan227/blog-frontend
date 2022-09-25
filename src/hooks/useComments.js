@@ -7,7 +7,7 @@ const useComments = () => {
 
   const getComments = async (postId) => {
     setIsLoading(true);
-    const res = await fetch(`/posts/${postId}/comments`);
+    const res = await fetch(`https://blog-api-lys3.onrender.com/posts/${postId}/comments`);
     const json = await res.json();
 
     if (res.ok) {

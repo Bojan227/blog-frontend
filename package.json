@@ -1,6 +1,6 @@
 {
-  "name": "frontend",
   "proxy": "https://blog-api-lys3.onrender.com",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
