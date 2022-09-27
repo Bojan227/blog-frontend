@@ -74,6 +74,10 @@ select {
   color: white;
 }
 
+.side-menu {
+  display: none;
+}
+
 #light {
   background-color: #f4f4f5;
   color: black;
@@ -97,7 +101,6 @@ a:hover {
 .navigation-menu {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   height: 30vh;
   width: 100%;
@@ -140,6 +143,7 @@ main > div {
   display: grid;
   grid-template-columns: 3fr 2fr;
   align-items: center;
+  justify-content: center;
   width: 80%;
   min-height: 100vh;
   padding: 10px 10px;
@@ -156,6 +160,7 @@ main > div > :nth-child(1) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   gap: 10px;
 }
 
@@ -163,6 +168,7 @@ main > div > :nth-child(1) {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   padding: 35px;
   background-color: #3f3f46;
 
@@ -230,6 +236,10 @@ p {
   color: black;
 }
 
+#light .comments-container > h1 {
+  color: black !important;
+}
+
 .comment-card {
   display: flex;
   flex-direction: column;
@@ -260,6 +270,9 @@ p {
     padding-bottom: 0;
     position: relative;
     padding: 0;
+  }
+  .comments-container > div {
+    width: 90%;
   }
   .menu {
     display: flex;
@@ -296,7 +309,14 @@ p {
     padding: 5px;
   }
   .form-comment > button {
-    width: 50%;
+    width: 70%;
+    padding: 10px 10px;
+    border-radius: 5px;
+  }
+
+  #light .form-comment > button {
+    background-color: #1e293b;
+    color: white;
   }
 
   .comment-card {
@@ -304,17 +324,19 @@ p {
   }
 
   .side-menu {
-    position: absolute;
+    position: fixed;
+    display: block;
     top: 0;
     left: 0;
     z-index: 10000;
-    width: 80vw;
+    width: 90vw;
     height: 100%;
     padding: 15px;
-    backdrop-filter: blur(25px);
+    backdrop-filter: blur(65px);
+    color: #1e293b;
+    font-weight: 900;
   }
   .side-menu > div {
-    color: black;
     display: flex;
     flex-direction: column;
     margin-top: 25px;
@@ -324,4 +346,50 @@ p {
   .post-details > img {
     width: 90%;
   }
+}
+
+@media (max-width: 450px) {
+  .navigation-menu {
+    height: 25vh;
+    justify-content: center;
+  }
+
+  .info-navigation > a > h1 {
+    font-size: 1.4rem;
+  }
+
+  main {
+    font-size: 0.8rem;
+  }
+  main > div {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0;
+  }
+
+  footer {
+    font-size: 0.5rem;
+  }
+
+  .post-details > img {
+    width: 300px;
+    height: 200px !important;
+  }
+  .post-details > :nth-child(3) {
+    font-size: 0.6rem;
+  }
+
+  .post-details > h1 {
+    font-size: 1.2em;
+  }
+  .description {
+    text-align: center;
+  }
+  p {
+    width: 95%;
+    line-height: 1.2rem;
+  }
+}
+
+.spinner-container {
+  min-height: 100vh;
 }
