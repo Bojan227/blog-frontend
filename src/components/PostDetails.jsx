@@ -62,7 +62,6 @@ export const PostDetails = () => {
             display: 'flex',
             gap: '10px',
             flexDirection: 'column',
-            padding: '20px',
           }}
         >
           {parse(description)}

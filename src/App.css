@@ -263,6 +263,12 @@ p {
   color: white;
 }
 
+.description > p {
+  margin: 0;
+  text-indent: 3ch;
+  text-align: left;
+}
+
 @media screen and (max-width: 700px) {
   .info-navigation {
     font-size: 1rem;
