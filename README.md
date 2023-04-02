@@ -1,6 +1,6 @@
 #Blog Main Page
 
-Main page for my personal blog
+Main page for the blog
 **Link to Project:** https://blog-frontend-ax9w.vercel.app/
 
 
