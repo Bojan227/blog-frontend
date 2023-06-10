@@ -44,14 +44,14 @@ export const PostDetails = () => {
 
     getPostDetails();
     getComments(postId);
-  }, [createdAt]);
+  }, []);
 
   if (isLoading) {
     return <LoadingSpinner />;
   }
 
   return (
-    <div>
+    <>
       <div className="post-details">
         <img
           src={url}
@@ -83,6 +83,6 @@ export const PostDetails = () => {
       </div>
       <CommentForm postId={postId} setComments={setComments} />
       <CommentsContainer comments={comments} isLoading={isLoadingComments} />
-    </div>
+    </>
   );
 };
