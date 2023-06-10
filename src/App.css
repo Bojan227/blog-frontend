@@ -15,6 +15,7 @@ pre {
   background-color: #94a3b8;
   padding: 10px;
   border-radius: 8px;
+  padding-block: 40px;
 }
 
 /* Remove default margin */
@@ -173,8 +174,9 @@ main > div > :nth-child(1) {
 }
 
 .blog-card > img {
-  object-fit: contain;
+  object-fit: cover;
   width: 400px;
+  height: 250px;
 }
 
 .description {
