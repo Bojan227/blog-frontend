@@ -1,21 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import format from "date-fns/format";
 
-export const BlogCard = ({ img, title, author, createdAt, id }) => {
+export const BlogCard = ({ img, title, createdAt, id }) => {
+  const date = new Date(createdAt || new Date());
+
   return (
     <div className="blog-card">
-      <img src={img} alt="img" style={{ width: '450px' }} />
+      <img src={img} alt="img" />
       <Link to={`/post-details/${id}`}>
         <h2>{title}</h2>
       </Link>
-      <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <h3>Created by </h3>
-        <h2>
-          {author.username.charAt(0).toUpperCase() +
-            author.username.slice(1).toLowerCase()}
-        </h2>
-      </span>
-      <h3>{createdAt.split('T')[0]}</h3>
+
+      <h3>{format(date, "MMM dd, yyyy")}</h3>
     </div>
   );
 };
