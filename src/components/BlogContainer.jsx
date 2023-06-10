@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
-import { BlogCard } from './BlogCard';
-import useFetch from '../hooks/useFetch';
-import LoadingSpinner from './LoadingSpinner';
+import { useEffect } from "react";
+import { BlogCard } from "./BlogCard";
+import useFetch from "../hooks/useFetch";
+import LoadingSpinner from "./LoadingSpinner";
+import LoadingMessage from "./LoadingMessage";
 export const BlogContainer = () => {
   const { fetchPosts, posts, isLoading, error } = useFetch();
 
@@ -10,7 +11,12 @@ export const BlogContainer = () => {
   }, []);
 
   if (isLoading) {
-    return <LoadingSpinner />;
+    return (
+      <>
+        <LoadingMessage />
+        <LoadingSpinner />
+      </>
+    );
   }
 
   const blogPosts = posts.map((post) => {
